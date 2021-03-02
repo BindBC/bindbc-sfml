@@ -2163,7 +2163,7 @@ else {
         lib.bindSymbol(cast(void**)&sfRenderWindow_setView,"sfRenderWindow_setView");
         lib.bindSymbol(cast(void**)&sfRenderWindow_getView,"sfRenderWindow_getView");
         lib.bindSymbol(cast(void**)&sfRenderWindow_getDefaultView,"sfRenderWindow_getDefaultView");
-        lib.bindSymbol(cast(void**)&sfRenderWindow_getViewport,"sfSocketSelector_wait");
+        lib.bindSymbol(cast(void**)&sfRenderWindow_getViewport,"sfRenderWindow_getViewport");
         lib.bindSymbol(cast(void**)&sfRenderWindow_mapPixelToCoords,"sfRenderWindow_mapPixelToCoords");
         lib.bindSymbol(cast(void**)&sfRenderWindow_mapCoordsToPixel,"sfRenderWindow_mapCoordsToPixel");
         lib.bindSymbol(cast(void**)&sfRenderWindow_drawSprite,"sfRenderWindow_drawSprite");
