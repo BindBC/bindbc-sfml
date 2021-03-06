@@ -663,6 +663,7 @@ else {
         SFMLSupport loadedVersion;
     }
 
+@nogc nothrow:
     SFMLSupport loadedSFMLNetworkVersion() { return loadedVersion; }
 
     bool isSFMLNetworkLoaded()

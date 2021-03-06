@@ -534,6 +534,7 @@ else {
         SFMLSupport loadedVersion;
     }
 
+@nogc nothrow:
     SFMLSupport loadedSFMLAudioVersion() { return loadedVersion; }
 
     bool isSFMLAudioLoaded()

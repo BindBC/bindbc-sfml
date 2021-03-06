@@ -1927,6 +1927,7 @@ else {
         SFMLSupport loadedVersion;
     }
 
+@nogc nothrow:
     SFMLSupport loadedSFMLGraphicsVersion() { return loadedVersion; }
 
     bool isSFMLGraphicsLoaded()

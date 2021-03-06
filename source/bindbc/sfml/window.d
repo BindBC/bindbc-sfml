@@ -741,6 +741,7 @@ else {
         SFMLSupport loadedVersion;
     }
 
+@nogc nothrow:
     SFMLSupport loadedSFMLWindowVersion() { return loadedVersion; }
 
     bool isSFMLWindowLoaded()

@@ -204,6 +204,7 @@ else {
         SFMLSupport loadedVersion;
     }
 
+@nogc nothrow:
     SFMLSupport loadedSFMLSystemVersion() { return loadedVersion; }
 
     bool isSFMLSystemLoaded()
