@@ -550,8 +550,6 @@ static if(staticSFML) {
         }
         else void sfRenderWindow_drawPrimitives(sfRenderWindow* renderWindow, const(sfVertex)* vertices, uint vertexCount, sfPrimitiveType type, const(sfRenderStates)* states);
         // Graphics/Shader.h
-        sfShader* sfShader_createFromFile(const(char)* vertexShaderFilename, const(char)* fragmentShaderFilename);
-        sfShader* sfShader_createFromMemory(const(char)* vertexShader, const(char)* fragmentShader);
         void sfShader_destroy(sfShader* shader);
         void sfShader_setFloatParameter(sfShader* shader, const(char)* name, float x);
         void sfShader_setFloat2Parameter(sfShader* shader, const(char)* name, float x, float y);
@@ -567,10 +565,14 @@ static if(staticSFML) {
         sfBool sfShader_isAvailable();
 
         static if(sfmlSupport >= SFMLSupport.sfml240) {
+            sfShader* sfShader_createFromFile(const(char)* vertexShaderFilename, const(char)* geometryShaderFilename const(char)* fragmentShaderFilename);
+            sfShader* sfShader_createFromMemory(const(char)* vertexShader, const(char)* geometryShader, const(char)* fragmentShader);
             sfShader* sfShader_createFromStream(sfInputStream* vertexShaderStream, sfInputStream* geometryShaderStream, sfInputStream* fragmentShaderStream);
         }
         else {
             sfShader* sfShader_createFromStream(sfInputStream* vertexShaderStream, sfInputStream* fragmentShaderStream);
+            sfShader* sfShader_createFromFile(const(char)* vertexShaderFilename, const(char)* fragmentShaderFilename);
+            sfShader* sfShader_createFromMemory(const(char)* vertexShader, const(char)* fragmentShader);
         }
 
         // Graphics/Shape.h
@@ -1143,9 +1145,16 @@ else {
 
 
         // Graphics/Shader.h
-        alias psfShader_createFromFile = sfShader* function(const(char)* vertexShaderFilename, const(char)* fragmentShaderFilename);
-        alias psfShader_createFromMemory = sfShader* function(const(char)* vertexShader, const(char)* fragmentShader);
-        alias psfShader_createFromStream = sfShader* function(sfInputStream* vertexShaderStream, sfInputStream* fragmentShaderStream);
+        static if(sfmlSupport >= SFMLSupport.sfml240) {
+            alias psfShader_createFromFile = sfShader* function(const(char)* vertexShaderFilename, const(char)* geometryShaderFilename, const(char)* fragmentShaderFilename);
+            alias psfShader_createFromMemory = sfShader* function(const(char)* vertexShader, const(char)* geometryShader, const(char)* fragmentShader);
+            alias psfShader_createFromStream = sfShader* function(sfInputStream* vertexShaderStream, sfInputStream* geometryShaderStream, sfInputStream* fragmentShaderStream);
+        }
+        else {
+            alias psfShader_createFromFile = sfShader* function(const(char)* vertexShaderFilename, const(char)* fragmentShaderFilename);
+            alias psfShader_createFromMemory = sfShader* function(const(char)* vertexShader, const(char)* fragmentShader);
+            alias psfShader_createFromStream = sfShader* function(sfInputStream* vertexShaderStream, sfInputStream* fragmentShaderStream);
+        }
         alias psfShader_destroy = void function(sfShader* shader);
         alias psfShader_setFloatParameter = void function(sfShader* shader, const(char)* name, float x);
         alias psfShader_setFloat2Parameter = void function(sfShader* shader, const(char)* name, float x, float y);
