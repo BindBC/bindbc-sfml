@@ -15,12 +15,12 @@ When using DUB to manage your project, the static bindings can be enabled via a 
 
 To use any of the supported CSFML libraries, add `bindbc-sfml` as a dependency to your project's package file and include the appropriate version for any of the CSFML libraries you want to use. Note that the CSFML System library is always loaded, and when the CSFML Graphics library is configured, the CSFML Window library will be loaded automatically.
 
-As an example, the following is configured to use the Audio, Graphics, System, and Window libraries via dynamic bindings that are not `-betterC` compatible (replace the `0.1.0` `bindbc-sfml` version with the actual version you require):
+As an example, the following is configured to use the Audio, Graphics, System, and Window libraries via dynamic bindings that are not `-betterC` compatible (replace the `1.0.0` `bindbc-sfml` version with the actual version you require):
 
 __dub.json__
 ```
 dependencies {
-    "bindbc-sfml": "~>0.1.0",
+    "bindbc-sfml": "~>1.0.0",
 }
 "versions": [
     "SFML_Audio",
@@ -30,7 +30,7 @@ dependencies {
 
 __dub.sdl__
 ```
-dependency "bindbc-sfml" version="~>0.1.0"
+dependency "bindbc-sfml" version="~>1.0.0"
 versions "SFML_Audio" "SFML_Graphics"
 ```
 
@@ -97,12 +97,12 @@ version(Windows) {
     }
 }
 ```
-By default, each CSFML library binding is configured to compile bindings for version 2.0.0 the C library. This ensures the widest level of compatibility at runtime. This behavior can be overridden by using via specific identifiers. It is recommended that you always select the minimum version you require _and no higher_. In this example, the CSFML dynamic bindings (for each CSFML library you intend to use) is compiled to support CSFML version 2.5.0 (replace the `0.1.0` `bindbc-sfml` version with the actual version you require):
+By default, each CSFML library binding is configured to compile bindings for version 2.0.0 the C library. This ensures the widest level of compatibility at runtime. This behavior can be overridden by using via specific identifiers. It is recommended that you always select the minimum version you require _and no higher_. In this example, the CSFML dynamic bindings (for each CSFML library you intend to use) is compiled to support CSFML version 2.5.0 (replace the `1.0.0` `bindbc-sfml` version with the actual version you require):
 
 __dub.json__
 ```
 "dependencies": {
-    "bindbc-sfmll": "~>0.1.0"
+    "bindbc-sfmll": "~>1.0.0"
 },
 "versions": [
     "SFML_Audio",
@@ -113,7 +113,7 @@ __dub.json__
 
 __dub.sdl__
 ```
-dependency "bindbc-sfml" version="~>0.1.0"
+dependency "bindbc-sfml" version="~>1.0.0"
 versions "SFML_Audio" "SFML_Graphics" "SFML_250"
 ```
 
@@ -188,12 +188,12 @@ When using the compiler command line or a build system that doesn't support DUB,
 
 __NOTE__: The version identifier `BindBC_Static` can be used to configure all of the _official_ BindBC packages used in your program, i.e., those maintained in [the BindBC GitHub organization](https://github.com/BindBC). Some third-party BindBC packages may support it as well.
 
-For example, when using the static bindings for the SFML Audio and Graphics packages with DUB (replace the `0.1.0` `bindbc-sfml` version with the actual version you require):
+For example, when using the static bindings for the SFML Audio and Graphics packages with DUB (replace the `1.0.0` `bindbc-sfml` version with the actual version you require):
 
 __dub.json__
 ```
 "dependencies": {
-    "bindbc-sfml": "~>0.1.0"
+    "bindbc-sfml": "~>1.0.0"
 },
 "versions": ["BindSFML_Static", "SFML_Audio", "SFML_Graphics"],
 "libs": ["csfml-audio", "csfml-graphics"]
@@ -201,7 +201,7 @@ __dub.json__
 
 __dub.sdl__
 ```
-dependency "bindbc-sfml" version="~>0.1.0"
+dependency "bindbc-sfml" version="~>1.0.0"
 versions "BindSFML_Static" "SFML_Audio" "SFML_Graphics"
 libs "csfml-audio"  "csfml-graphics"
 ```
@@ -214,7 +214,7 @@ Instead of using DUB's `versions` directive, a `subConfiguration` can be used. E
 __dub.json__
 ```
 "dependencies": {
-    "bindbc-sfml": "~>0.1.0"
+    "bindbc-sfml": "~>1.0.0"
 },
 "subConfigurations": {
     "bindbc-sfml": "static"
@@ -228,7 +228,7 @@ __dub.json__
 
 __dub.sdl__
 ```
-dependency "bindbc-sfml" version="~>0.1.0"
+dependency "bindbc-sfml" version="~>1.0.0"
 subConfiguration "bindbc-sfml" "static"
 versions "SFML_Audio" "SFML_Graphics"
 libs "csfml-audio"  "csfml-graphics"
@@ -242,7 +242,7 @@ Note that if you wished to call any CSFML System or Window functions, the `csdml
 __dub.json__
 ```
 "dependencies": {
-    "bindbc-sfml": "~>0.1.0"
+    "bindbc-sfml": "~>1.0.0"
 },
 "subConfigurations": {
     "bindbc-sfml": "staticBC"
@@ -256,7 +256,7 @@ __dub.json__
 
 __dub.sdl__
 ```
-dependency "bindbc-sfml" version="~>0.1.0"
+dependency "bindbc-sfml" version="~>1.0.0"
 subConfiguration "bindbc-sfml" "staticBC"
 versions "SFML_Audio" "SFML_Graphics"
 libs "csfml-audio"  "csfml-graphics"
