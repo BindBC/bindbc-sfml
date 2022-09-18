@@ -565,7 +565,7 @@ static if(staticSFML) {
         sfBool sfShader_isAvailable();
 
         static if(sfmlSupport >= SFMLSupport.sfml240) {
-            sfShader* sfShader_createFromFile(const(char)* vertexShaderFilename, const(char)* geometryShaderFilename const(char)* fragmentShaderFilename);
+            sfShader* sfShader_createFromFile(const(char)* vertexShaderFilename, const(char)* geometryShaderFilename, const(char)* fragmentShaderFilename);
             sfShader* sfShader_createFromMemory(const(char)* vertexShader, const(char)* geometryShader, const(char)* fragmentShader);
             sfShader* sfShader_createFromStream(sfInputStream* vertexShaderStream, sfInputStream* geometryShaderStream, sfInputStream* fragmentShaderStream);
         }
