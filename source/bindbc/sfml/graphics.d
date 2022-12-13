@@ -2116,6 +2116,7 @@ else {
         lib.bindSymbol(cast(void**)&sfRectangleShape_getPoint,"sfRectangleShape_getPoint");
         lib.bindSymbol(cast(void**)&sfRectangleShape_getPoint,"sfRectangleShape_getPoint");
         lib.bindSymbol(cast(void**)&sfRectangleShape_setSize,"sfRectangleShape_setSize");
+        lib.bindSymbol(cast(void**)&sfRectangleShape_getSize,"sfRectangleShape_getSize");
         lib.bindSymbol(cast(void**)&sfRectangleShape_getLocalBounds,"sfRectangleShape_getLocalBounds");
         lib.bindSymbol(cast(void**)&sfRectangleShape_getGlobalBounds,"sfRectangleShape_getGlobalBounds");
         lib.bindSymbol(cast(void**)&sfRenderTexture_create,"sfRenderTexture_create");
