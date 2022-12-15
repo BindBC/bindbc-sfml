@@ -20,8 +20,8 @@ As an example, the following is configured to use the Audio, Graphics, System, a
 __dub.json__
 ```
 "dependencies": {
-    "bindbc-sfml": "~>1.0.0",
-}
+    "bindbc-sfml": "~>1.0.0"
+},
 "versions": [
     "SFML_Audio",
     "SFML_Graphics"
