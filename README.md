@@ -25,7 +25,7 @@ __dub.json__
 "versions": [
     "SFML_Audio",
     "SFML_Graphics"
-],
+]
 ```
 
 __dub.sdl__
@@ -107,8 +107,8 @@ __dub.json__
 "versions": [
     "SFML_Audio",
     "SFML_Graphics",
-    "SFML_250",
-],
+    "SFML_250"
+]
 ```
 
 __dub.sdl__
@@ -221,8 +221,8 @@ __dub.json__
 },
 "versions": [
     "SFML_Audio",
-    "SFML_Graphics",
-],
+    "SFML_Graphics"
+]
 "libs": ["csfml-audio", "csfml-graphics"]
 ```
 
@@ -249,8 +249,8 @@ __dub.json__
 },
 "versions": [
     "SFML_Audio",
-    "SFML_Graphics",
-],
+    "SFML_Graphics"
+]
 "libs": ["csfml-audio", "csfml-graphics"]
 ```
 
