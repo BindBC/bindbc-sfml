@@ -103,7 +103,7 @@ static if(sfmlSupport >= SFMLSupport.sfml230) {
         sfEvtTouchBegan,
         sfEvtTouchMoved,
         sfEvtTouchEnded,
-        sfEvtTouchChanged,
+        sfEvtSensorChanged,
     }
 }
 else static if(sfmlSupport == SFMLSupport.sfml220) {
@@ -129,7 +129,7 @@ else static if(sfmlSupport == SFMLSupport.sfml220) {
         sfEvtTouchBegan,
         sfEvtTouchMoved,
         sfEvtTouchEnded,
-        sfEvtTouchChanged,
+        sfEvtSensorChanged,
     }
 }
 else {
