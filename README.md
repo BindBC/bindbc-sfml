@@ -21,7 +21,7 @@ __dub.json__
 ```
 "dependencies": {
     "bindbc-sfml": "~>1.0.0",
-}
+},
 "versions": [
     "SFML_Audio",
     "SFML_Graphics"
@@ -121,12 +121,12 @@ Following are the supported CSFML library versions and the corresponding version
 
 | Library Version    | Version ID       |
 |--------------------|------------------|
-|SFML 2.0.0           | Default         |
-|SFML 2.1.0           | SFML_201        |
-|SFML 2.2.0           | SFML_202        |
-|SFML 2.3.0           | SFML_203        |
-|SFML 2.4.0           | SFML_204        |
-|SFML 2.5.0           | SFML_205        |
+|SFML 2.0.0          | Default         |
+|SFML 2.1.0          | SFML_210        |
+|SFML 2.2.0          | SFML_220        |
+|SFML 2.3.0          | SFML_230        |
+|SFML 2.4.0          | SFML_240        |
+|SFML 2.5.0          | SFML_250        |
 
 __NOTE__: Note that, unlike the main SFML libraries, CSFML does not tend to have patch releases. This means, for example, that CSFML 2.5.0 is compatible with SFML 2.5.0, SFML 2.5.1, and any future SFML 2.5.x releases. As a result, the `CSFML_VERSION_PATCH` constant is always `0`.
 
@@ -144,7 +144,7 @@ If you insist on supporting older CSFML versions than the one you've configured,
 These are the functions you need to watch out for, the version in which the change was made, and the nature of the change:
 
 | Version  | Function Name                        | Change                               |
-|-------------------------------------------------|--------------------------------------|
+|----------|--------------------------------------|--------------------------------------|
 | SFML_220 | sfFont_getKerning                    | Return type (void to sfBool)         |
 | SFML_220 | sfFont_getLineSpacing                | Return type (void to sfBool)         |
 | SFML_220 | sfSoundRecorder_start                | Return type (void to sfBool)         |
