@@ -2,7 +2,7 @@
 This project provides both static and dynamic D bindings to versions 2.0 &ndash; 2.5 of the CSFML libraries, which in turn are [the official C bindings](https://www.sfml-dev.org/download/csfml/) to [the SFML game and multimedia libraries](https://www.sfml-dev.org/index.php) written in C++. This package is intended as a replacement of [DerelictSFML2](https://github.com/DerelictOrg/DerelictSFML2).
 
 ## About CSFML
-__NOTE__: This documentation describes how to use BindBC-SFML. As the maintainer of this library, I do not provide instructions on using CSFML. However, since these are direct bindings to the CSFML API, then the following quote from the CSFML download page applies (documentation link added by me for convenience):
+This documentation describes how to use BindBC-SFML. As the maintainer of this library, I do not provide instructions on using CSFML. However, since these are direct bindings to the CSFML API, then the following quote from the CSFML download page applies (documentation link added by me for convenience):
 
 > Since the CSFML API is similar to SFML, there's no tutorial for it; but you can follow the C++ tutorials available [on this website](https://www.sfml-dev.org/learn.php), and adapt them to the C API very easily.
 
@@ -128,9 +128,11 @@ Following are the supported CSFML library versions and the corresponding version
 | SFML 2.4.0         | SFML_240         |
 | SFML 2.5.0         | SFML_250         |
 
-__NOTE__: Note that, unlike the main SFML libraries, CSFML does not tend to have patch releases. This means, for example, that CSFML 2.5.0 is compatible with SFML 2.5.0, SFML 2.5.1, and any future SFML 2.5.x releases. As a result, the `CSFML_VERSION_PATCH` constant is always `0`.
+> [!NOTE]\
+> Unlike the main SFML libraries, CSFML does not tend to have patch releases. This means, for example, that CSFML 2.5.0 is compatible with SFML 2.5.0, SFML 2.5.1, and any future SFML 2.5.x releases. As a result, the `CSFML_VERSION_PATCH` constant is always `0`.
 
-__NOTE__: There is no difference in the public API between CSFML 2.0 and CSFML 2.1.
+> [!NOTE]\
+> There is no difference in the public API between CSFML 2.0 and CSFML 2.1.
 
 ### Version mismatch
 Many C libraries have versioning schemes such that minor version releases, e.g. 2.0 vs 2.1, are still compatible. In that case, a dynamic binding can load e.g. a 2.0 library with a 2.1 binding and, as long as no 2.1 functions are called, run as normal. With SFML, this is actually only true with versions 2.0 and 2.1.
@@ -177,7 +179,8 @@ The static bindings have a link-time dependency on either the shared or static C
 
 This requires the CSFML development packages be installed on your system at compile time. When linking with the static libraries, there is no runtime dependency on CSFML. When linking with the shared libraries, the runtime dependency is the same as the dynamic bindings, the difference being that the shared libraries are no longer loaded manually&mdash;loading is handled automatically by the system when the program is launched.
 
-__NOTE__: The CSFML binary distributions on [the CSFML download page](https://www.sfml-dev.org/download/csfml/) do not include static libraries. The Windows packages contain import libraries, meaning the DLLs will still be required at runtime. To obtain the static libraries, you will either have to build them yourself or find prebuilt libraries somewhere else. I am unaware of anywhere that provides the CSFML static libraries for download, so if you do find them somewhere, please let me know.
+> [!NOTE]\
+> The CSFML binary distributions on [the CSFML download page](https://www.sfml-dev.org/download/csfml/) do not include static libraries. The Windows packages contain import libraries, meaning the DLLs will still be required at runtime. To obtain the static libraries, you will either have to build them yourself or find prebuilt libraries somewhere else. I am unaware of anywhere that provides the CSFML static libraries for download, so if you do find them somewhere, please let me know.
 
 Enabling the static bindings can be done in two ways.
 
@@ -186,8 +189,7 @@ Pass the `BindSFML_Static` version to the compiler and link with the appropriate
 
 When using the compiler command line or a build system that doesn't support DUB, this is the only option. The `-version=BindSFML_Static` option should be passed to the compiler when building your program. All of the required C libraries, as well as the BindBC-SFML and `bindbc-loader` static libraries, must also be passed to the compiler on the command line or via your build system's configuration.
 
-> __Note__
->
+> [!NOTE]\
 > The version identifierentifier `BindBC_Static` can be used to configure all of the _official_ BindBC packages used in your program. (i.e. those maintained in [the BindBC GitHub organisation](https://github.com/BindBC)) Some third-party BindBC packages may support it as well.
 
 For example, when using the static bindings for the SFML Audio and Graphics packages with DUB:
