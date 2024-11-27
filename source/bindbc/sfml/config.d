@@ -6,15 +6,16 @@
 
 module bindbc.sfml.config;
 
-enum SFMLSupport {
-    noLibrary,
-    badLibrary,
-    sfml200         = 200,
-    sfml210         = 210,
-    sfml220         = 220,
-    sfml230         = 230,
-    sfml240         = 240,
-    sfml250         = 250,
+enum SFMLSupport{
+	noLibrary,
+	badLibrary,
+	sfml200        = 2_0_0,
+	sfml210        = 2_1_0,
+	sfml220        = 2_2_0,
+	sfml230        = 2_3_0,
+	sfml240        = 2_4_0,
+	sfml250        = 2_5_0,
+	sfml252        = 2_5_2,
 }
 
 version(BindBC_Static) version = BindSFML_Static;
@@ -34,9 +35,9 @@ else enum bindSFMLAudio = false;
 version(SFML_Network) enum bindSFMLNetwork = true;
 else enum bindSFMLNetwork = false;
 
-version(SFML_Graphics) {
-    version = SFML_Window;
-    enum bindSFMLGraphics = true;
+version(SFML_Graphics){
+	version = SFML_Window;
+	enum bindSFMLGraphics = true;
 }
 else enum bindSFMLGraphics = false;
 
@@ -44,10 +45,10 @@ version(SFML_Window) enum bindSFMLWindow = true;
 else enum bindSFMLWindow = false;
 
 enum expandEnum(EnumType, string fqnEnumType = EnumType.stringof) = (){
-    string expandEnum = "enum {";
-    foreach(m;__traits(allMembers, EnumType)) {
-        expandEnum ~= m ~ " = " ~ fqnEnumType ~ "." ~ m ~ ",";
-    }
-    expandEnum  ~= "}";
-    return expandEnum;
+	string expandEnum = "enum{";
+	foreach(m;__traits(allMembers, EnumType)){
+		expandEnum ~= m ~ " = " ~ fqnEnumType ~ "." ~ m ~ ",";
+	}
+	expandEnum  ~= "}";
+	return expandEnum;
 }();
