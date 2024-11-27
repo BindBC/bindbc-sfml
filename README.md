@@ -1,4 +1,14 @@
-# bindbc-sfml
+# Deprecation Warning
+These bindings are no longer going to be actively maintained by me in the future. You may submit issues, and I will still review pull requests, but I may not respond to issues in a timely fashion.
+
+### Why?
+- SFML has a similar feature-set to SDL, which you can already use via [BindBC-SDL](https://github.com/BindBC/bindbc-sdl) if you need a multimedia library. SDL is generally more feature-rich than SFML.
+- SFML frequently has breaking changes in patch releases. SDL has breaking changes in major releases only.
+- These bindings have been used by very few people, meaning that they may well be a minefield of undiscovered bugs.
+- The bindings haven't been updated to use BindBC-Common, so any non-trivial maintenance would require a large pre-requisite amount of work.
+
+# BindBC-SFML
+
 This project provides both static and dynamic D bindings to versions 2.0 &ndash; 2.5 of the CSFML libraries, which in turn are [the official C bindings](https://www.sfml-dev.org/download/csfml/) to [the SFML game and multimedia libraries](https://www.sfml-dev.org/index.php) written in C++. This package is intended as a replacement of [DerelictSFML2](https://github.com/DerelictOrg/DerelictSFML2).
 
 ## About CSFML
@@ -127,9 +137,7 @@ Following are the supported CSFML library versions and the corresponding version
 | SFML 2.3.0         | SFML_230         |
 | SFML 2.4.0         | SFML_240         |
 | SFML 2.5.0         | SFML_250         |
-
-> [!NOTE]\
-> Unlike the main SFML libraries, CSFML does not tend to have patch releases. This means, for example, that CSFML 2.5.0 is compatible with SFML 2.5.0, SFML 2.5.1, and any future SFML 2.5.x releases. As a result, the `CSFML_VERSION_PATCH` constant is always `0`.
+| SFML 2.5.2         | SFML_252         |
 
 > [!NOTE]\
 > There is no difference in the public API between CSFML 2.0 and CSFML 2.1.
@@ -147,32 +155,33 @@ These are the functions you need to watch out for, the version in which the chan
 
 | Version  | Function Name                        | Change                               |
 |----------|--------------------------------------|--------------------------------------|
-| SFML_220 | sfFont_getKerning                    | Return type (void to sfBool)         |
-| SFML_220 | sfFont_getLineSpacing                | Return type (void to sfBool)         |
-| SFML_220 | sfSoundRecorder_start                | Return type (void to sfBool)         |
-| SFML_230 | sfCircleShape_getPoint               | Parameter type (uint to size_t)      |
-| SFML_230 | sfCircleShape_getPointCount          | Return type (uint to size_t)         |
-| SFML_230 | sfCircleShape_setPointCount          | Parameter type (uint to size_t)      |
-| SFML_230 | sfConvexShape_getPoint               | Parameter type (uint to size_t)      |
-| SFML_230 | sfConvexShape_getPointCount          | Return type (uint to size_t)         |
-| SFML_230 | sfConvexShape_setPointCount          | Parameter type (uint to size_t)      |
-| SFML_230 | sfRectangleShape_getPoint            | Parameter type (uint to size_t)      |
-| SFML_230 | sfRectangleShape_getPointCount       | Return type (uint to size_t)         |
-| SFML_230 | sfRenderTexture_drawPrimitives       | Parameter type (uint to size_t)      |
-| SFML_230 | sfRenderWindow_drawPrimitives        | Parameter type (uint to size_t)      |
-| SFML_230 | sfShader_createFromStream            | Additional parameter                 |
-| SFML_230 | sfShape_getPoint                     | Parameter type (uint to size_t)      |
-| SFML_230 | sfShape_getPointCount                | Return type (uint to size_t)         |
-| SFML_230 | sfSoundBuffer_createFromSamples      | Parameter type (size_t to sfUint64)  |
-| SFML_230 | sfSoundBuffer_getSampleCount         | Return type (size_t to sfUint64)     |
-| SFML_230 | sfVertexArray_getVertexCount         | Return type (uint to size_t)         |
-| SFML_230 | sfVertexArray_getVertex              | Parameter type (uint to size_t)      |
-| SFML_230 | sfVertexArray_resize                 | Parameter type (uint to size_t)      |
-| SFML_240 | sfContext_setActive                  | Return type (void to sfBool)         |
-| SFML_240 | sfTcpListener_listen                 | Additional parameter                 |
-| SFML_240 | sfUdpSocket_bind                     | Additional parameter                 |
-| SFML_240 | sfSoundBufferRecorder_start          | Return type (void to sfBool)         |
-| SFML_250 | sfFtp_upload                         | Additional parameter                 |
+| SFML_220 | `sfFont_getKerning`                  | Return type (void to sfBool)         |
+| SFML_220 | `sfFont_getLineSpacing`              | Return type (void to sfBool)         |
+| SFML_220 | `sfSoundRecorder_start`              | Return type (void to sfBool)         |
+| SFML_230 | `sfCircleShape_getPoint`             | Parameter type (uint to size_t)      |
+| SFML_230 | `sfCircleShape_getPointCount`        | Return type (uint to size_t)         |
+| SFML_230 | `sfCircleShape_setPointCount`        | Parameter type (uint to size_t)      |
+| SFML_230 | `sfConvexShape_getPoint`             | Parameter type (uint to size_t)      |
+| SFML_230 | `sfConvexShape_getPointCount`        | Return type (uint to size_t)         |
+| SFML_230 | `sfConvexShape_setPointCount`        | Parameter type (uint to size_t)      |
+| SFML_230 | `sfRectangleShape_getPoint`          | Parameter type (uint to size_t)      |
+| SFML_230 | `sfRectangleShape_getPointCount`     | Return type (uint to size_t)         |
+| SFML_230 | `sfRenderTexture_drawPrimitives`     | Parameter type (uint to size_t)      |
+| SFML_230 | `sfRenderWindow_drawPrimitives`      | Parameter type (uint to size_t)      |
+| SFML_230 | `sfShader_createFromStream`          | Additional parameter                 |
+| SFML_230 | `sfShape_getPoint`                   | Parameter type (uint to size_t)      |
+| SFML_230 | `sfShape_getPointCount`              | Return type (uint to size_t)         |
+| SFML_230 | `sfSoundBuffer_createFromSamples`    | Parameter type (size_t to sfUint64)  |
+| SFML_230 | `sfSoundBuffer_getSampleCount`       | Return type (size_t to sfUint64)     |
+| SFML_230 | `sfVertexArray_getVertexCount`       | Return type (uint to size_t)         |
+| SFML_230 | `sfVertexArray_getVertex`            | Parameter type (uint to size_t)      |
+| SFML_230 | `sfVertexArray_resize`               | Parameter type (uint to size_t)      |
+| SFML_240 | `sfContext_setActive`                | Return type (void to sfBool)         |
+| SFML_240 | `sfTcpListener_listen`               | Additional parameter                 |
+| SFML_240 | `sfUdpSocket_bind`                   | Additional parameter                 |
+| SFML_240 | `sfSoundBufferRecorder_start`        | Return type (void to sfBool)         |
+| SFML_250 | `sfFtp_upload`                       | Additional parameter                 |
+| SFML_252 | `sfTexture_setSrgb`                  | Removed entirely :(                  |
 
 ## The static bindings
 The static bindings have a link-time dependency on either the shared or static CSFML libraries. On Windows, you can link with the static libraries or, to use the DLLs, the import libraries. On other systems, you can link with either the static libraries or directly with the shared libraries.
@@ -189,7 +198,7 @@ Pass the `BindSFML_Static` version to the compiler and link with the appropriate
 
 When using the compiler command line or a build system that doesn't support DUB, this is the only option. The `-version=BindSFML_Static` option should be passed to the compiler when building your program. All of the required C libraries, as well as the BindBC-SFML and `bindbc-loader` static libraries, must also be passed to the compiler on the command line or via your build system's configuration.
 
-> [!NOTE]\
+> [!TIP]\
 > The version identifierentifier `BindBC_Static` can be used to configure all of the _official_ BindBC packages used in your program. (i.e. those maintained in [the BindBC GitHub organisation](https://github.com/BindBC)) Some third-party BindBC packages may support it as well.
 
 For example, when using the static bindings for the SFML Audio and Graphics packages with DUB:
